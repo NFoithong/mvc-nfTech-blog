@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
-                req.seesion.loggedIn = true;
+                req.session.loggedIn = true;
 
                 res.json(dbUserData);
             });
@@ -57,6 +57,32 @@ router.post('/', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+router.post('/login', (req, res) => {
+    // Query operation
+    // expects {email, password}
+    User.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'No user with email address' });
+                return;
+            }
+            // res.json({ user: dbUserData });
+            // Verify user
+            const validPasswowrd = dbUserData.checkPassword(req.body.password);
+
+            if (!validPasswowrd) {
+                res.status(400).json({ message: 'Incorrect password!' });
+                return;
+            }
+            res.json({ user: dbUserData, message: 'You are now logged in!' });
+        });
+});
+
 // PUT /api/users/1
 router.put('/:id', (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
