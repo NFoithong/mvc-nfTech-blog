@@ -47,8 +47,9 @@ The tests in this application verifies data formatting using Jest.
 ## Demo/Deploy
 Heroku: https://mvc-nftech-blog-app.herokuapp.com/
 ### Screenshot
-[New-Post](images/Screen Shot 2022-03-20 at 2.04.51 AM.png) <br>
-[Post](images/Screen Shot 2022-03-20 at 2.04.59 AM.png)
+<img width="1263" alt="Screen Shot 2022-03-20 at 2 04 51 AM" src="https://user-images.githubusercontent.com/69065671/159150631-0da302af-1627-4c60-85be-e1f9fbffff7d.png">
+<img width="1269" alt="Screen Shot 2022-03-20 at 2 04 59 AM" src="https://user-images.githubusercontent.com/69065671/159150635-79e9d8e7-68a1-43b2-ad1c-265126e2a0f3.png">
+
 ## Questions
 - E-mail me for any questions [n.foithong1983@gmail.com](mailto:n.foithong1983@gmail.com)
 - Also you can find me on Github [NFoithong](https://github.com/NFoithong).
