@@ -44,6 +44,9 @@ N/A.
 ## Tests
 The tests in this application verifies data formatting using Jest.  
 
+## Demo/Deploy
+Heroku: https://mvc-nftech-blog-app.herokuapp.com/
+
 ## Questions
 - E-mail me for any questions [n.foithong1983@gmail.com](mailto:n.foithong1983@gmail.com)
 - Also you can find me on Github [NFoithong](https://github.com/NFoithong).
