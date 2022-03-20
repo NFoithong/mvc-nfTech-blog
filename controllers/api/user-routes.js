@@ -14,13 +14,26 @@ router.get('/', (req, res) => {
         });
 });
 
-// GET /api/users/1
+// GET /api/users/by id
 router.get('/:id', (req, res) => {
     User.findOne({
             attributes: { exclude: ['password'] },
             where: {
                 id: req.params.id
-            }
+            },
+            include: [{
+                    model: Post,
+                    attributes: ['id', 'title', 'content', 'created_id']
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'created_at'],
+                    include: {
+                        model: Post,
+                        attributes: ['title']
+                    }
+                }
+            ]
         })
         .then(dbUserData => {
             if (!dbUserData) {

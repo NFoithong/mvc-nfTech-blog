@@ -1,28 +1,29 @@
 {
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "express-handlebars": "^6.0.3",
-    "express-session": "^1.17.2",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.17.0"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "name": "mvc-nftech-blog",
-  "description": "CMS-style Blog built using Model View Controller (MVC) paradigm. Built using MySQL2, Express, Sequelize, Handlebars and dotenv",
-  "version": "1.0.0",
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NFoithong/mvc-nfTech-blog.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NFoithong/mvc-nfTech-blog/issues"
-  },
-  "homepage": "https://github.com/NFoithong/mvc-nfTech-blog#readme"
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "connect-session-sequelize": "^7.1.2",
+        "dotenv": "^16.0.0",
+        "express": "^4.17.3",
+        "express-handlebars": "^6.0.3",
+        "express-session": "^1.17.2",
+        "mysql2": "^2.3.3",
+        "sequelize": "^6.17.0"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "name": "mvc-nftech-blog",
+    "description": "CMS-style Blog built using Model View Controller (MVC) paradigm. Built using MySQL2, Express, Sequelize, Handlebars and dotenv",
+    "version": "1.0.0",
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NFoithong/mvc-nfTech-blog.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NFoithong/mvc-nfTech-blog/issues"
+    },
+    "homepage": "https://github.com/NFoithong/mvc-nfTech-blog#readme"
 }
