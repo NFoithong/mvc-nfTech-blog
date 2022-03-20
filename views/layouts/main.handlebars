@@ -14,10 +14,24 @@
             <h1>
                 <a href="/" class="blog-title">MVC NF Tech Blog</a><i class="large material-icons">laptop_mac</i></p>
             </h1>
-        </header>
-        <main>
-            {{{body}}}
-        </main>
-    </div>
+            <nav>
+    {{#if loggedIn}}
+    <a href="/" class="homepage">Homepage</a>
+    <a href="/dashboard">Dashboard</a>
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/" class="homepage">Homepage</a>
+    <a href="/login">Login</a>
+    {{/if}}
+    </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+  </div>
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 </html>
