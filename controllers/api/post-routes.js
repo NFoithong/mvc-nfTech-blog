@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
@@ -12,10 +12,19 @@ router.get('/', (req, res) => {
                 ['create_at', 'DESC']
             ],
             // JOIN to the User table
-            include: {
-                model: User,
-                attributes: ['username']
-            }
+            include: [{
+                    model: User,
+                    attributes: ['username']
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    include: {
+                        model: 'user',
+                        attributes: ['username']
+                    }
+                }
+            ]
         })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
@@ -31,10 +40,19 @@ router.get('/:id', (req, res) => {
                 id: req.params.id
             },
             attributes: ['id', 'title', 'content', 'created_at'],
-            include: {
-                model: User,
-                attributes: ['username']
-            }
+            include: [{
+                    model: User,
+                    attributes: ['username']
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    include: {
+                        model: 'user',
+                        attributes: ['username']
+                    }
+                }
+            ]
         })
         .then(dbPostData => {
             if (!dbPostData) {
@@ -54,8 +72,7 @@ router.post('/', (req, res) => {
     Post.create({
             title: req.body.title,
             content: req.body.content,
-            user_id: req.body,
-            user_id
+            user_id: req.body.user_id
         })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
